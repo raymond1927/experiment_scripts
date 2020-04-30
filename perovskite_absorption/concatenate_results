@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# concatenate all the relevant files together
+energy_limit=16
+for prefix in au no
+do
+	count=5
+	while [ $count -lt $energy_limit ]
+	do
+		cat ./"${prefix}${count}kt1.csv" >> ./"${prefix}${count}kt0.csv"
+		count=$(($count+1))
+	done
+done
